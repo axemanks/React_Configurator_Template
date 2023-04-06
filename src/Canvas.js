@@ -3,8 +3,8 @@ import { OrbitControls, Center, useGLTF, Environment, AccumulativeShadows, Rando
 import React, { useRef } from "react";
 import { easing } from "maath";
 
-// position = [-1, .5, 2.5],  - loads camera at a nice angle to the model
-export const App = ({ position = [0, .5, 2.5], fov = 45 }) => (
+// position = [-1, .5, 2.5],  - loads camera at a big angle to the model
+export const App = ({ position = [0, .5, 2.5], fov = 75 }) => (
   <Canvas
     shadows
     eventSource={document.getElementById("root")}

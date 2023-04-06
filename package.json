@@ -12,7 +12,9 @@
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1",
     "three": "0.150.1",
-    "maath": "0.5.2"
+    "maath": "0.5.2",
+    "@pmndrs/branding": "0.0.8",
+    "react-icons": "4.8.0"
 
   },
   "devDependencies": {
