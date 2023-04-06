@@ -10,14 +10,15 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* overflow: hidden to keep the page from scrolling */
-  user-select: none;
+  overflow: hidden; /* (overflow: hidden) to keep the page from scrolling */
+  user-select: none; /* This property is used to prevent users from highlighting and copying text from a specific element. */
 }
 
 body {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0;/* the off white color */
 }
 /* disble scrolling on mobile devices */
 canvas {
   touch-action: none;
 }
+
