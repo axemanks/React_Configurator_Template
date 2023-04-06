@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+#main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* overflow: hidden to keep the page from scrolling */
+  user-select: none;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+/* disble scrolling on mobile devices */
+canvas {
+  touch-action: none;
+}
