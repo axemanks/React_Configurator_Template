@@ -1,9 +1,9 @@
 import { Logo } from '@pmndrs/branding';
-import { AiOutlineHighlight, AiOutlineShopping } from 'react-icons/ai';
+import { AiOutlineHighlight, AiOutlineShopping, AiFillCamera, AiOutlineArrowLeft } from 'react-icons/ai';
 
 export default function Overlay() {
-  return <Intro />
   return <Customizer />
+  
     
 }
 // transition from intro to configurator page
