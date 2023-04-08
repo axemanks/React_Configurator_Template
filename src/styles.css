@@ -86,27 +86,20 @@ section {
   pointer-events: none;
 }
 
-@media screen and (min-width: 768px) {
-  .section--container h1 {
-  font-size: 4rem; /* Change the font size to 4rem for screens that are at least 768px wide */
-  line-height: 1.2; /* Adjust the line height as necessary */
-  width: auto; /* Remove the fixed width to allow the text to wrap */
-  }
-  }
-
 .section--container h1 {
+  
   font-weight: 900;
-  font-size: 16vw;
+  font-size: 12vw;
   letter-spacing: -6px;
   font-style: italic;
   width: 30%;
-  line-height: 15vh;
+  line-height: 25vh;
   font-family: 'Nunito Sans', sans-serif;
 }
 
 /* default: relative - flex makes it stack on small */
 .support--content {
-  position: flex;
+  position: relative;
   top: -25%;
   left: 300px;
 }
@@ -232,4 +225,33 @@ button:hover {
 
 .exit:hover {
   box-shadow: inset -250px 0 0 0 black;
+}
+
+/* MOBILE ADJUSTMENTS */
+
+@media screen and (max-width: 700px) {
+  .section--container {
+    margin-left: 15vw;
+  }
+    
+  .section--container h1 {
+    font-size: 8vw;
+    letter-spacing: -1px;
+    line-height: 6rem;
+  }
+
+  /* .color-options {
+    margin-bottom: 20px;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+  } */
+  
+  .support--content {
+    position: flex;
+    top: -10%;
+    left: 0;
+  }
 }

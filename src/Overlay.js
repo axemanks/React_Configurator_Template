@@ -98,7 +98,21 @@ function Customizer() {
         {/* Butttons */}
         
         <button className="download"
-          style={{ background: snap.selectedColor }}>
+          style={{ background: snap.selectedColor }}
+          // saves screenshot of canvas and downloads it
+          onClick={() => {
+            const link = document.createElement('a')
+            link.setAttribute('download', 'canvas.png') // name of file that will be saved
+            link.setAttribute(
+              'href',
+              document
+                .querySelector('canvas')
+                .toDataURL('image/png')
+                .replace('image/png', 'image/octet-stream')
+            )
+            link.click()
+          }}
+        >
           DOWNLOAD
           <AiFillCamera size="1.3em" />  {/* Icon from react-icons */}
         </button>

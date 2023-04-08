@@ -10,6 +10,7 @@ import * as THREE from "three";
 export const App = ({ position = [0, 0, 2.5], fov = 25 }) => (
   <Canvas
     shadows
+    gl={{ preserveDrawingBuffer: true}} // for screenshot and download
     eventSource={document.getElementById("root")}
     eventPrefix="client"
     camera={{ position, fov }}
