@@ -2,32 +2,53 @@ import { Logo } from '@pmndrs/branding';
 import { AiOutlineHighlight, AiOutlineShopping, AiFillCamera, AiOutlineArrowLeft, AiOutlineSend } from 'react-icons/ai';
 import { useSnapshot } from 'valtio';
 import state from './store';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // this is the contorl for state from valtio
 export default function Overlay() {
   const snap = useSnapshot(state); 
 
+  // configure the transitions
+  const transition = { type: 'spring', duration: 0.8 }  // set the inital transition for all future refrence
+  const config = {
+    initial: { x: -100, opacity: 0, transition: { ...transition, delay: 0.5 } },
+    animate: { x: 0, opacity: 1, transition: { ...transition, delay: 0 } },
+    exit: { x: -100, opacity: 0, transition: { ...transition, delay: 0 } }
+  }
+
 
 
   return (
     <div className="container">
-      <header>
+      <motion.header
+        initial={{ opacity: 0, y: -120 }} // opacity 0 is blank and -120 is off screen
+        animate={{ opacity: 1, y: 0 }} // opacity 1 is full and 0 is in final position
+        transition={{ type: 'spring', duration: 1.8, delay: 1}} // in seconds
+      >
         <Logo width="40" height="40" />
         <div>
           <AiOutlineShopping size="3em" />
         </div>
-      </header>
+      </motion.header>
+
+
+      <AnimatePresence>
       {/* controls which page is displayed */}
-      {snap.intro ? <Intro /> : <Customizer />}
+      {snap.intro ? (
+          <Intro key="main" config={config} />
+        ) : (
+          <Customizer key="custom" config={config} />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
     
 {/* transition from intro to configurator page */}
     
-function Intro() {
+function Intro({ config }) {
   return (
-    <section key="main">
+    <motion.section {...config} key="main">
       <div className="section--container">
         <div>
           <h1>LET'S DO IT.</h1>
@@ -47,13 +68,13 @@ function Intro() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
 // Customizer page
 // colors to pick from
-function Customizer() {
+function Customizer({ config }) {
   const snap = useSnapshot(state)
 
   const colors = [
@@ -72,7 +93,7 @@ function Customizer() {
 
 // creates a div for each object in the array
   return (
-    <section key="custom">
+    <motion.section {...config}>
       <div className="customizer">
         <div className="color-options">
           {colors.map((color) => (
@@ -131,6 +152,6 @@ function Customizer() {
           <AiOutlineSend size="1.3em" />  {/* Icon from react-icons */}
         </button>
       </div>
-    </section>
+    </motion.section>
   )
 }

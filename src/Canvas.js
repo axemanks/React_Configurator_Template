@@ -70,9 +70,16 @@ function Backdrop() {
 }
 // update the rotation property of a 3D object (referenced by the group.current object) based on the user's mouse movement
 function CameraRig({ children }) {
-  const group = useRef();  
+  const snap = useSnapshot(state);
+  const group = useRef();
+  
   useFrame((state, delta) => {
-    easing.damp3(state.camera.position, [0, 0, 2], 0.25, delta)
+    easing.damp3(state.camera.position,
+      // moves the camera based on intro or not from snap state
+      [snap.intro ? -state.viewport.width / 4 : 0, 0, 2],
+      0.25,
+      delta
+    )
     easing.dampE(
       group.current.rotation,
       [state.pointer.y / 10, -state.pointer.x / 5, 0], // higher numbers = less movement on mouse move

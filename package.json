@@ -15,7 +15,8 @@
     "maath": "0.5.2",
     "@pmndrs/branding": "0.0.8",
     "react-icons": "4.8.0",
-    "valtio": "1.10.3"
+    "valtio": "1.10.3",
+    "framer-motion": "10.0.2"
 
   },
   "devDependencies": {
