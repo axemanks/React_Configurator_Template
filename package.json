@@ -14,7 +14,8 @@
     "three": "0.150.1",
     "maath": "0.5.2",
     "@pmndrs/branding": "0.0.8",
-    "react-icons": "4.8.0"
+    "react-icons": "4.8.0",
+    "valtio": "1.10.3"
 
   },
   "devDependencies": {
